@@ -1,5 +1,5 @@
 //
-//  ColorExtension.swift
+//  Color+Ext.swift
 //  GitHubFollowers
 //
 //  Created by SCOTT CROWDER on 5/2/24.
