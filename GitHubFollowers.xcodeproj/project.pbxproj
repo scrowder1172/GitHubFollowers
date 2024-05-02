@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */; };
-		528C724D2BE2FE4A0063C289 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724C2BE2FE4A0063C289 /* ContentView.swift */; };
+		528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724C2BE2FE4A0063C289 /* MainView.swift */; };
 		528C724F2BE2FE4B0063C289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C724E2BE2FE4B0063C289 /* Assets.xcassets */; };
 		528C72522BE2FE4B0063C289 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C72512BE2FE4B0063C289 /* Preview Assets.xcassets */; };
 		52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */; };
@@ -19,7 +19,7 @@
 /* Begin PBXFileReference section */
 		528C72472BE2FE4A0063C289 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersApp.swift; sourceTree = "<group>"; };
-		528C724C2BE2FE4A0063C289 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		528C724C2BE2FE4A0063C289 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		528C724E2BE2FE4B0063C289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528C72512BE2FE4B0063C289 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFButton.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */,
-				528C724C2BE2FE4A0063C289 /* ContentView.swift */,
+				528C724C2BE2FE4A0063C289 /* MainView.swift */,
 				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
 				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
 				52CFA3CA2BE412F90004D9A5 /* ColorExtension.swift */,
@@ -147,7 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */,
-				528C724D2BE2FE4A0063C289 /* ContentView.swift in Sources */,
+				528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */,
 				528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,
 				52CFA3CB2BE412F90004D9A5 /* ColorExtension.swift in Sources */,
