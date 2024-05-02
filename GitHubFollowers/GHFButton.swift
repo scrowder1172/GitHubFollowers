@@ -31,7 +31,7 @@ struct GHFButton: View {
 }
 
 #Preview {
-    GHFButton(backgroundColor: .label, title: "Sample Button") {
+    GHFButton(backgroundColor: .green, title: "Get Followers") {
         // do work
     }
 }
