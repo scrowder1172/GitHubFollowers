@@ -13,20 +13,28 @@ struct GHFTextField: View {
     
     var body: some View {
         TextField("Enter a username", text: $inputText)
-            .padding(5)
-            .border(Color.systemGray4, width: 2)
+            .autocorrectionDisabled()
+            .padding(10)
             .foregroundStyle(Color.label)
             .tint(Color.label)
             .multilineTextAlignment(.center)
             .font(.title2)
             .background(Color.tertiarySystemBackground)
-            .autocorrectionDisabled()
+            .clipShape(.rect(cornerRadius: 30))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.systemGray4, lineWidth: 2)
+            )
             .padding()
     
         
     }
 }
 
-#Preview {
+#Preview("TextField") {
     GHFTextField(inputText: .constant("Hello"))
+}
+
+#Preview("TabView") {
+    GHFTabView()
 }

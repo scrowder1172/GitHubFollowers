@@ -35,3 +35,8 @@ struct GHFButton: View {
         // do work
     }
 }
+
+#Preview("TabView") {
+    GHFTabView()
+}
+
