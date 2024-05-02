@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct GHFText: View {
+    
+    let backgroundColor: Color
+    let title: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(title)
+            .foregroundStyle(.white)
+            .font(.headline)
+            .padding()
+            .frame(maxWidth: .infinity)
+            .contentShape(Rectangle())
+            .background(backgroundColor)
+            .clipShape(.rect(cornerRadius: 10))
+            .shadow(color: .gray, radius: 2, x: 0, y: 2)
     }
 }
 
 #Preview {
-    GHFText()
+    GHFText(backgroundColor: .green, title: "Get Followers")
 }
