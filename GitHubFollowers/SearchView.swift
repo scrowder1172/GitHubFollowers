@@ -27,12 +27,15 @@ struct SearchView: View {
                 
                 Spacer()
                 
-                GHFButton(backgroundColor: .green, title: "Get Followers") {
-                    print("Button clicked")
+                NavigationLink(value: searchText) {
+                    GHFText(backgroundColor: .green, title: "Get Followers")
+                    .frame(height: 50)
+                    .padding(.horizontal, 50)
+                    .padding(.bottom, 50)
                 }
-                .frame(height: 50)
-                .padding(.horizontal, 50)
-                .padding(.bottom, 50)
+            }
+            .navigationDestination(for: String.self) { searchText in
+                FollowersView(gitHubUser: searchText)
             }
             .background(Color.systemBackground)
             .toolbar(.hidden) // hides navbar
