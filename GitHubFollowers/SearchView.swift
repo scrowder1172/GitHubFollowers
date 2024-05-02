@@ -28,11 +28,12 @@ struct SearchView: View {
                 Spacer()
                 
                 NavigationLink(value: searchText) {
-                    GHFText(backgroundColor: .green, title: "Get Followers")
+                    GHFText(backgroundColor: searchText.isEmpty ? .systemGray4 : .green, title: "Get Followers")
                     .frame(height: 50)
                     .padding(.horizontal, 50)
                     .padding(.bottom, 50)
                 }
+                .disabled(searchText.isEmpty)
             }
             .navigationDestination(for: String.self) { searchText in
                 FollowersView(gitHubUser: searchText)
