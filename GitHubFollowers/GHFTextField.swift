@@ -26,9 +26,7 @@ struct GHFTextField: View {
                     .stroke(Color.systemGray4, lineWidth: 2)
             )
             .padding()
-            .submitLabel(.go)
-    
-        
+            .submitLabel(.done)
     }
 }
 
