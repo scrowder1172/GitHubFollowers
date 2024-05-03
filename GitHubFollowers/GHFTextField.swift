@@ -20,7 +20,6 @@ struct GHFTextField: View {
             .multilineTextAlignment(.center)
             .font(.title2)
             .background(Color.tertiarySystemBackground)
-            .clipShape(.rect(cornerRadius: 30))
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.systemGray4, lineWidth: 2)
