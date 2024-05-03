@@ -20,13 +20,12 @@ struct GHFButton: View {
             Text(title)
                 .foregroundStyle(.white)
                 .font(.headline)
-                .padding()
+                .padding(.vertical, 12)
                 .frame(maxWidth: .infinity)
                 .contentShape(Rectangle())
         }
         .background(backgroundColor)
         .clipShape(.rect(cornerRadius: 10))
-        .shadow(color: .gray, radius: 2, x: 0, y: 2)
     }
 }
 
