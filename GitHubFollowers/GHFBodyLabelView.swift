@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct GHFBodyLabelView: View {
+    
+    let bodyText: String
+    let textAlignment: TextAlignment
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(bodyText)
+            .multilineTextAlignment(textAlignment)
+            .font(.body)
     }
 }
 
 #Preview {
-    GHFBodyLabelView()
+    GHFBodyLabelView(
+        bodyText: "Please enter a username. We need to know who to look for 😄",
+        textAlignment: .leading
+    )
 }
