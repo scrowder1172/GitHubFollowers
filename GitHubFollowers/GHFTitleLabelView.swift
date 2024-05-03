@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct GHFTitleLabelView: View {
+    
+    let titleText: String
+    let textAlignment: TextAlignment
+    let fontSize: CGFloat
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(titleText)
+            .multilineTextAlignment(textAlignment)
+            .font(.system(size: fontSize, weight: .bold))
+            .foregroundStyle(Color.label)
+            .lineLimit(1)
+            .truncationMode(.tail)
     }
 }
 
 #Preview {
-    GHFTitleLabelView()
+    GHFTitleLabelView(
+        titleText: "Title Message",
+        textAlignment: .center,
+        fontSize: 24
+    )
 }
