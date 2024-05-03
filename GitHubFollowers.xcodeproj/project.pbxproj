@@ -15,6 +15,8 @@
 		526D8FEB2BE52EE900287022 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FEA2BE52EE900287022 /* User.swift */; };
 		526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FF02BE53E9200287022 /* NetworkManager.swift */; };
 		526D8FF42BE5410500287022 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FF32BE5410500287022 /* NetworkError.swift */; };
+		526D8FFF2BE560DD00287022 /* FollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FFE2BE560DD00287022 /* FollowerCell.swift */; };
+		526D90012BE560FE00287022 /* GHFAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D90002BE560FE00287022 /* GHFAvatarImageView.swift */; };
 		528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */; };
 		528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724C2BE2FE4A0063C289 /* MainView.swift */; };
 		528C724F2BE2FE4B0063C289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C724E2BE2FE4B0063C289 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		526D8FEA2BE52EE900287022 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		526D8FF02BE53E9200287022 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		526D8FF32BE5410500287022 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		526D8FFE2BE560DD00287022 /* FollowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerCell.swift; sourceTree = "<group>"; };
+		526D90002BE560FE00287022 /* GHFAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAvatarImageView.swift; sourceTree = "<group>"; };
 		528C72472BE2FE4A0063C289 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersApp.swift; sourceTree = "<group>"; };
 		528C724C2BE2FE4A0063C289 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -77,12 +81,14 @@
 		5268C8C02BE4697400EB978F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				526D8FFD2BE560C800287022 /* Cells */,
 				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
 				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
 				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
 				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
 				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
 				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
+				526D90002BE560FE00287022 /* GHFAvatarImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -110,6 +116,14 @@
 				526D8FF32BE5410500287022 /* NetworkError.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		526D8FFD2BE560C800287022 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				526D8FFE2BE560DD00287022 /* FollowerCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		528C723E2BE2FE4A0063C289 = {
@@ -228,6 +242,7 @@
 				52CFA3D72BE434080004D9A5 /* GHFText.swift in Sources */,
 				526D8FE92BE52ECA00287022 /* Follower.swift in Sources */,
 				52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */,
+				526D8FFF2BE560DD00287022 /* FollowerCell.swift in Sources */,
 				5268C8BA2BE45EE600EB978F /* View+Ext.swift in Sources */,
 				526D8FEB2BE52EE900287022 /* User.swift in Sources */,
 				528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */,
@@ -237,6 +252,7 @@
 				52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */,
 				526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,
+				526D90012BE560FE00287022 /* GHFAvatarImageView.swift in Sources */,
 				52CFA3D52BE431320004D9A5 /* FollowersView.swift in Sources */,
 				5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */,
 				52CFA3D92BE43C5D0004D9A5 /* String+Ext.swift in Sources */,
