@@ -11,6 +11,9 @@ struct SearchView: View {
     
     @State private var searchText: String = ""
     
+    @State private var isShowingAlert: Bool = false
+    @State private var navigateToFollowers: Bool = false
+    
     var body: some View {
         NavigationStack{
             VStack {
@@ -27,15 +30,19 @@ struct SearchView: View {
                 
                 Spacer()
                 
-                NavigationLink(value: searchText) {
-                    GHFText(backgroundColor: searchText.isEmpty ? .systemGray4 : .green, title: "Get Followers")
-                    .frame(height: 50)
-                    .padding(.horizontal, 50)
-                    .padding(.bottom, 50)
+                GHFButton(backgroundColor: .green, title: "Get Followers") {
+                    if searchText.isEmpty {
+                        isShowingAlert = true
+                    } else {
+                        navigateToFollowers = true
+                    }
                 }
-                .disabled(searchText.isEmpty)
+                .padding(.horizontal, 50)
+                .padding(.bottom, 50)
+                .shadow(color: .gray, radius: 2, x: 0, y: 2)
             }
-            .navigationDestination(for: String.self) { searchText in
+            .ghfAlert(isShowingAlert: $isShowingAlert, title: "Empty Username", message: "Please enter a username. We need to know who to look for 😄", buttonText: "OK")
+            .navigationDestination(isPresented: $navigateToFollowers) {
                 FollowersView(gitHubUser: searchText)
             }
             .background(Color.systemBackground)
