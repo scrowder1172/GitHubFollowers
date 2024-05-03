@@ -11,6 +11,8 @@
 		5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */; };
 		5268C8B82BE45C6100EB978F /* GHFBodyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */; };
 		5268C8BA2BE45EE600EB978F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B92BE45EE600EB978F /* View+Ext.swift */; };
+		526D8FE92BE52ECA00287022 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FE82BE52ECA00287022 /* Follower.swift */; };
+		526D8FEB2BE52EE900287022 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FEA2BE52EE900287022 /* User.swift */; };
 		528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */; };
 		528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724C2BE2FE4A0063C289 /* MainView.swift */; };
 		528C724F2BE2FE4B0063C289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C724E2BE2FE4B0063C289 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 		5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTitleLabelView.swift; sourceTree = "<group>"; };
 		5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFBodyLabelView.swift; sourceTree = "<group>"; };
 		5268C8B92BE45EE600EB978F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		526D8FE82BE52ECA00287022 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		526D8FEA2BE52EE900287022 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		528C72472BE2FE4A0063C289 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersApp.swift; sourceTree = "<group>"; };
 		528C724C2BE2FE4A0063C289 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,15 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		526D8FE72BE52EBD00287022 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				526D8FE82BE52ECA00287022 /* Follower.swift */,
+				526D8FEA2BE52EE900287022 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		528C723E2BE2FE4A0063C289 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,7 @@
 				52CFA3D42BE431320004D9A5 /* FollowersView.swift */,
 				52CFA3D02BE41A280004D9A5 /* FavoritesView.swift */,
 				5268C8C02BE4697400EB978F /* CustomViews */,
+				526D8FE72BE52EBD00287022 /* Models */,
 				5268C8BF2BE4695800EB978F /* Extensions */,
 				528C724E2BE2FE4B0063C289 /* Assets.xcassets */,
 				528C72502BE2FE4B0063C289 /* Preview Content */,
@@ -190,8 +204,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CFA3D72BE434080004D9A5 /* GHFText.swift in Sources */,
+				526D8FE92BE52ECA00287022 /* Follower.swift in Sources */,
 				52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */,
 				5268C8BA2BE45EE600EB978F /* View+Ext.swift in Sources */,
+				526D8FEB2BE52EE900287022 /* User.swift in Sources */,
 				528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */,
 				528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */,
 				52CFA3CF2BE41A1F0004D9A5 /* SearchView.swift in Sources */,
