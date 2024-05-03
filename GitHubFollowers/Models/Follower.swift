@@ -12,4 +12,6 @@ struct Follower: Codable, Identifiable {
     var avatarUrl: String
     
     var id: String { login }
+    
+    static let Example: Follower = Follower(login: "Sample User", avatarUrl: "https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_1280.png")
 }
