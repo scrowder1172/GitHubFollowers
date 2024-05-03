@@ -13,6 +13,8 @@
 		5268C8BA2BE45EE600EB978F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B92BE45EE600EB978F /* View+Ext.swift */; };
 		526D8FE92BE52ECA00287022 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FE82BE52ECA00287022 /* Follower.swift */; };
 		526D8FEB2BE52EE900287022 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FEA2BE52EE900287022 /* User.swift */; };
+		526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FF02BE53E9200287022 /* NetworkManager.swift */; };
+		526D8FF42BE5410500287022 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526D8FF32BE5410500287022 /* NetworkError.swift */; };
 		528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */; };
 		528C724D2BE2FE4A0063C289 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C724C2BE2FE4A0063C289 /* MainView.swift */; };
 		528C724F2BE2FE4B0063C289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C724E2BE2FE4B0063C289 /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		5268C8B92BE45EE600EB978F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		526D8FE82BE52ECA00287022 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		526D8FEA2BE52EE900287022 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		526D8FF02BE53E9200287022 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		526D8FF32BE5410500287022 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		528C72472BE2FE4A0063C289 /* GitHubFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubFollowersApp.swift; sourceTree = "<group>"; };
 		528C724C2BE2FE4A0063C289 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		526D8FEF2BE53E8900287022 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				526D8FF02BE53E9200287022 /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		526D8FF22BE540F600287022 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				526D8FF32BE5410500287022 /* NetworkError.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		528C723E2BE2FE4A0063C289 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +131,8 @@
 		528C72492BE2FE4A0063C289 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
+				526D8FF22BE540F600287022 /* Enums */,
+				526D8FEF2BE53E8900287022 /* Managers */,
 				528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */,
 				528C724C2BE2FE4A0063C289 /* MainView.swift */,
 				52CFA3CE2BE41A1F0004D9A5 /* SearchView.swift */,
@@ -213,10 +235,12 @@
 				52CFA3CF2BE41A1F0004D9A5 /* SearchView.swift in Sources */,
 				5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */,
 				52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */,
+				526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,
 				52CFA3D52BE431320004D9A5 /* FollowersView.swift in Sources */,
 				5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */,
 				52CFA3D92BE43C5D0004D9A5 /* String+Ext.swift in Sources */,
+				526D8FF42BE5410500287022 /* NetworkError.swift in Sources */,
 				52CFA3CB2BE412F90004D9A5 /* Color+Ext.swift in Sources */,
 				5268C8B82BE45C6100EB978F /* GHFBodyLabelView.swift in Sources */,
 			);
