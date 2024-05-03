@@ -34,5 +34,5 @@ struct GHFTextField: View {
 }
 
 #Preview("TabView") {
-    GHFTabView()
+    MainView()
 }

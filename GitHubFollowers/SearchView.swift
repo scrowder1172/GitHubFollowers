@@ -56,6 +56,6 @@ struct SearchView: View {
 }
 
 #Preview("TabView") {
-    GHFTabView()
+    MainView()
 }
 

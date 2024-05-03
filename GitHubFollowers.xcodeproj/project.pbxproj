@@ -18,7 +18,6 @@
 		52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */; };
 		52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */; };
 		52CFA3CB2BE412F90004D9A5 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */; };
-		52CFA3CD2BE419C80004D9A5 /* GHFTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3CC2BE419C80004D9A5 /* GHFTabView.swift */; };
 		52CFA3CF2BE41A1F0004D9A5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3CE2BE41A1F0004D9A5 /* SearchView.swift */; };
 		52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3D02BE41A280004D9A5 /* FavoritesView.swift */; };
 		52CFA3D52BE431320004D9A5 /* FollowersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3D42BE431320004D9A5 /* FollowersView.swift */; };
@@ -39,7 +38,6 @@
 		52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFButton.swift; sourceTree = "<group>"; };
 		52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTextField.swift; sourceTree = "<group>"; };
 		52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
-		52CFA3CC2BE419C80004D9A5 /* GHFTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTabView.swift; sourceTree = "<group>"; };
 		52CFA3CE2BE41A1F0004D9A5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		52CFA3D02BE41A280004D9A5 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		52CFA3D42BE431320004D9A5 /* FollowersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersView.swift; sourceTree = "<group>"; };
@@ -58,6 +56,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5268C8BF2BE4695800EB978F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */,
+				52CFA3D82BE43C5D0004D9A5 /* String+Ext.swift */,
+				5268C8B92BE45EE600EB978F /* View+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5268C8C02BE4697400EB978F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
+				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
+				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
+				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
+				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
+				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		528C723E2BE2FE4A0063C289 = {
 			isa = PBXGroup;
 			children = (
@@ -79,19 +100,11 @@
 			children = (
 				528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */,
 				528C724C2BE2FE4A0063C289 /* MainView.swift */,
-				52CFA3CC2BE419C80004D9A5 /* GHFTabView.swift */,
 				52CFA3CE2BE41A1F0004D9A5 /* SearchView.swift */,
 				52CFA3D42BE431320004D9A5 /* FollowersView.swift */,
 				52CFA3D02BE41A280004D9A5 /* FavoritesView.swift */,
-				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
-				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
-				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
-				52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */,
-				52CFA3D82BE43C5D0004D9A5 /* String+Ext.swift */,
-				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
-				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
-				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
-				5268C8B92BE45EE600EB978F /* View+Ext.swift */,
+				5268C8C02BE4697400EB978F /* CustomViews */,
+				5268C8BF2BE4695800EB978F /* Extensions */,
 				528C724E2BE2FE4B0063C289 /* Assets.xcassets */,
 				528C72502BE2FE4B0063C289 /* Preview Content */,
 			);
@@ -185,7 +198,6 @@
 				5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */,
 				52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,
-				52CFA3CD2BE419C80004D9A5 /* GHFTabView.swift in Sources */,
 				52CFA3D52BE431320004D9A5 /* FollowersView.swift in Sources */,
 				5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */,
 				52CFA3D92BE43C5D0004D9A5 /* String+Ext.swift in Sources */,

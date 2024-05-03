@@ -36,6 +36,6 @@ struct GHFButton: View {
 }
 
 #Preview("TabView") {
-    GHFTabView()
+    MainView()
 }
 
