@@ -25,4 +25,8 @@ extension Color {
     static var systemBackground: Color {
         Color(UIColor.systemBackground)
     }
+    
+    static var secondaryLabel: Color {
+        Color(UIColor.secondaryLabel)
+    }
 }
