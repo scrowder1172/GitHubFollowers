@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Identifiable {
     var login: String
     var avatarUrl: String
     var name: String?
@@ -19,4 +19,6 @@ struct User: Codable {
     var following: Int
     var followers: Int
     var createdAt: String
+    
+    var id: String { login }
 }
