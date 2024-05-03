@@ -15,11 +15,19 @@ struct FollowersView: View {
     @State private var errorMessage: String = "An error has occurred. Please try again."
     @State private var followers: [Follower]?
     
+    let columns = [
+        GridItem(.adaptive(minimum: 120))
+    ]
+    
     var body: some View {
         VStack{
             if let followers {
-                List(followers) { follower in
-                    Text(follower.login)
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(followers) { follower in
+                            FollowerCell(follower: follower)
+                        }
+                    }
                 }
                 Text("Follower count: \(followers.count)")
             } else {
@@ -47,5 +55,5 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView(gitHubUser: "Hello")
+    FollowersView(gitHubUser: "SAllen0400")
 }
