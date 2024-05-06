@@ -20,6 +20,8 @@ struct FollowersView: View {
     @State private var searchText: String = ""
     @State private var followerSet: Set<String> = []
     @State private var lastIndexRequested: Int = 0
+    @State private var isShowingUserDetailView: Bool = false
+    @State private var selectedFollower: Follower?
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -43,6 +45,9 @@ struct FollowersView: View {
                         LazyVGrid(columns: columns) {
                             ForEach(filteredFollowers) { follower in
                                 FollowerCell(follower: follower, followerSet: $followerSet)
+                                    .onTapGesture {
+                                        selectedFollower = follower
+                                    }
                             }
                         }
                     }
@@ -57,6 +62,11 @@ struct FollowersView: View {
             }
             .opacity(isLoadingFollowers ? 0.5 : 1.0)
             .disabled(isLoadingFollowers)
+            .sheet(item: $selectedFollower) { _ in
+                if let selectedFollower {
+                    UserDetailView(follower: selectedFollower)
+                }
+            }
             
             if isLoadingFollowers {
                 ProgressView()
