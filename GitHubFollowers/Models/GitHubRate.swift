@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct GitHubRate: Codable {
+    let rate: Rate
+}
+
+struct Rate: Codable {
+    let limit: Int
+    let remaining: Int
+}
