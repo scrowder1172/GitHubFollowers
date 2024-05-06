@@ -17,35 +17,45 @@ struct FollowersView: View {
     @State private var hasMoreFollowers: Bool = true
     @State private var pageNumber: Int = 0
     @State private var followerCount: Int = 0
+    @State private var isLoadingFollowers: Bool = false
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
     ]
     
     var body: some View {
-        VStack{
-            if followers.isEmpty {
-                ContentUnavailableView(label: {
-                    Label("Followers", systemImage: "person.3.fill")
-                }, description: {
-                    Text("This will be a list of followers for \(gitHubUser)")
-                })
-            } else {
-                ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(followers) { follower in
-                            FollowerCell(follower: follower, followerCount: $followerCount)
+        ZStack{
+            VStack{
+                if followers.isEmpty {
+                    ContentUnavailableView(label: {
+                        Label("Followers", systemImage: "person.3.fill")
+                    }, description: {
+                        Text("This will be a list of followers for \(gitHubUser)")
+                    })
+                } else {
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach(followers) { follower in
+                                FollowerCell(follower: follower, followerCount: $followerCount)
+                            }
                         }
                     }
-                }
-                .onChange(of: followerCount) { oldValue, newValue in
-//                    print("Follower Count: \(newValue)")
-                    if hasMoreFollowers, newValue == followers.count {
-                        getFollowers()
+                    .onChange(of: followerCount) { oldValue, newValue in
+    //                    print("Follower Count: \(newValue)")
+                        if hasMoreFollowers, newValue == followers.count {
+                            getFollowers()
+                        }
                     }
+                    Text("Follower count: \(followers.count)")
                 }
-                Text("Follower count: \(followers.count)")
             }
+            .opacity(isLoadingFollowers ? 0.5 : 1.0)
+            .disabled(isLoadingFollowers)
+            
+            if isLoadingFollowers {
+                ProgressView()
+            }
+            
         }
         .onAppear {
             getFollowers()
@@ -58,6 +68,7 @@ struct FollowersView: View {
     
     func getFollowers() {
         Task {
+            isLoadingFollowers = true
             do {
                 pageNumber += 1
                 let newFollowers = try await NetworkManager.shared.getFollowers(for: gitHubUser, page: pageNumber)
@@ -69,6 +80,7 @@ struct FollowersView: View {
                 errorMessage = error.localizedDescription
                 isShowingAlert = true
             }
+            isLoadingFollowers = false
         }
     }
 }
