@@ -11,40 +11,30 @@ struct UserDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    let follower: Follower
-    @State private var avatarImage: UIImage?
+    let username: String
+    @State private var user: User = .ExampleUser
+    @State private var avatarImage: UIImage = .avatarPlaceholder
+    @State private var isShowingAlert: Bool = false
+    @State private var errorMessage: String = ""
     
     var body: some View {
         NavigationStack {
             HStack {
-                if let avatarImage {
-                    GHFAvatarImageView(placeholderImage: Image(uiImage: avatarImage))
-                        .padding(.top, 8)
-                } else {
-                    GHFAvatarImageView()
-                        .padding(.top, 8)
-                }
+                GHFAvatarImageView(placeholderImage: Image(uiImage: avatarImage))
+                    .padding(.top, 8)
                 
                 VStack {
-                    GHFTitleLabelView(titleText: follower.login, textAlignment: .center, fontSize: 16)
+                    GHFTitleLabelView(titleText: user.login, textAlignment: .center, fontSize: 16)
                         .padding(.bottom, 5)
-                    GHFBodyLabelView(bodyText: follower.avatarUrl, textAlignment: .leading)
+                    GHFBodyLabelView(bodyText: user.createdAt, textAlignment: .leading)
+                    GHFBodyLabelView(bodyText: user.bio ?? "", textAlignment: .leading)
                 }
             }
             .onAppear {
-                Task {
-                    let cacheKey = NSString(string: follower.avatarUrl)
-                    
-                    if let image = NetworkManager.cache.object(forKey: cacheKey) {
-                        avatarImage = image
-                        return
-                    }
-                    
-                    avatarImage = try await NetworkManager.shared.downloadImage(from: follower.avatarUrl)
-                    NetworkManager.cache.setObject(avatarImage ?? UIImage(resource: .avatarPlaceholder), forKey: cacheKey)
-                }
+                getUserDetails()
             }
-            .navigationTitle(follower.login)
+            .ghfAlert(isShowingAlert: $isShowingAlert, title: "Error!", message: errorMessage, buttonText: "OK")
+            .navigationTitle(username)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
@@ -55,8 +45,20 @@ struct UserDetailView: View {
             }
         }
     }
+    
+    func getUserDetails() {
+        Task {
+            do {
+                user = try await NetworkManager.shared.getUserDetails(for: username)
+                avatarImage = try await NetworkManager.shared.downloadImage(from: user.avatarUrl)
+            } catch {
+                errorMessage = error.localizedDescription
+                isShowingAlert = true
+            }
+        }
+    }
 }
 
 #Preview {
-    UserDetailView(follower: .Example)
+    UserDetailView(username: "SAllen0400")
 }

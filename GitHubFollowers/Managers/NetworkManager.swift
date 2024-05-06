@@ -42,10 +42,6 @@ final class NetworkManager {
             throw NetworkError.gitHubRateLimitExceeded
         }
         
-//        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-//            throw NetworkError.statusCodeInvalid
-//        }
-        
         guard let response = response as? HTTPURLResponse else {
             print("invalid response")
             throw NetworkError.responseInvalid
@@ -63,6 +59,55 @@ final class NetworkManager {
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             let followers: [Follower] = try decoder.decode([Follower].self, from: data)
             return followers
+            
+        } catch {
+            print("Error: \(error.localizedDescription)")
+            throw NetworkError.responseInvalid
+        }
+        
+    }
+    
+    func getUserDetails(for username: String) async throws -> User {
+        let endpoint: String = baseUrl + "\(username)"
+        
+        guard let url = URL(string: endpoint) else {
+            print("URL error")
+            throw NetworkError.urlInvalid
+        }
+        print("URL: \(url)")
+        
+        let (data, response): (Data, URLResponse)
+        
+        do {
+            (data, response) = try await URLSession.shared.data(from: url)
+        } catch {
+            print("response error")
+            throw NetworkError.responseInvalid
+        }
+        
+        let rate = try await checkGitHubRateLimit()
+        print("GitHub Calls Remaining: \(rate.remaining)")
+        if rate.remaining < 10 {
+            throw NetworkError.gitHubRateLimitExceeded
+        }
+        
+        guard let response = response as? HTTPURLResponse else {
+            print("invalid response")
+            throw NetworkError.responseInvalid
+        }
+        
+        print("Status code: \(response.statusCode)")
+        guard response.statusCode == 200 else {
+            print("invalid status code \(response.statusCode)")
+            throw NetworkError.statusCodeInvalid
+        }
+        
+        
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            let user: User = try decoder.decode(User.self, from: data)
+            return user
             
         } catch {
             print("Error: \(error.localizedDescription)")

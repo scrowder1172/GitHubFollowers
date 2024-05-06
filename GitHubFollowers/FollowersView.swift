@@ -64,7 +64,7 @@ struct FollowersView: View {
             .disabled(isLoadingFollowers)
             .sheet(item: $selectedFollower) { _ in
                 if let selectedFollower {
-                    UserDetailView(follower: selectedFollower)
+                    UserDetailView(username: selectedFollower.login)
                 }
             }
             
