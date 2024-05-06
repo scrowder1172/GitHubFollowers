@@ -22,6 +22,7 @@
 		528C724F2BE2FE4B0063C289 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C724E2BE2FE4B0063C289 /* Assets.xcassets */; };
 		528C72522BE2FE4B0063C289 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528C72512BE2FE4B0063C289 /* Preview Assets.xcassets */; };
 		52AD047D2BE5EE4E002FF222 /* GitHubRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD047C2BE5EE4E002FF222 /* GitHubRate.swift */; };
+		52AD04872BE94201002FF222 /* GHFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD04862BE94201002FF222 /* GHFEmptyStateView.swift */; };
 		52CFA3C72BE40BD40004D9A5 /* GHFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */; };
 		52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */; };
 		52CFA3CB2BE412F90004D9A5 /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */; };
@@ -49,6 +50,7 @@
 		528C724E2BE2FE4B0063C289 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528C72512BE2FE4B0063C289 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52AD047C2BE5EE4E002FF222 /* GitHubRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRate.swift; sourceTree = "<group>"; };
+		52AD04862BE94201002FF222 /* GHFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFEmptyStateView.swift; sourceTree = "<group>"; };
 		52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFButton.swift; sourceTree = "<group>"; };
 		52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTextField.swift; sourceTree = "<group>"; };
 		52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				526D8FFD2BE560C800287022 /* Cells */,
+				52AD04862BE94201002FF222 /* GHFEmptyStateView.swift */,
 				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
 				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
 				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
@@ -252,6 +255,7 @@
 				528C724B2BE2FE4A0063C289 /* GitHubFollowersApp.swift in Sources */,
 				52CFA3CF2BE41A1F0004D9A5 /* SearchView.swift in Sources */,
 				5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */,
+				52AD04872BE94201002FF222 /* GHFEmptyStateView.swift in Sources */,
 				52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */,
 				526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,

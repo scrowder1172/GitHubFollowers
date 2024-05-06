@@ -18,7 +18,6 @@ struct GHFTitleLabelView: View {
             .multilineTextAlignment(textAlignment)
             .font(.system(size: fontSize, weight: .bold))
             .foregroundStyle(Color.label)
-            .lineLimit(1)
             .truncationMode(.tail)
     }
 }

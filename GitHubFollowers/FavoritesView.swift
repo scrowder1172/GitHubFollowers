@@ -9,11 +9,7 @@ import SwiftUI
 
 struct FavoritesView: View {
     var body: some View {
-        ContentUnavailableView(label: {
-            Label("Favorites", systemImage: "star.fill")
-        }, description: {
-            Text("This view will be replaced by the Favorites View")
-        })
+        GHFEmptyStateView(message: "You haven't added any favorites yet ⭐️")
     }
 }
 

@@ -27,11 +27,7 @@ struct FollowersView: View {
         ZStack{
             VStack{
                 if followers.isEmpty {
-                    ContentUnavailableView(label: {
-                        Label("Followers", systemImage: "person.3.fill")
-                    }, description: {
-                        Text("This will be a list of followers for \(gitHubUser)")
-                    })
+                    GHFEmptyStateView(message: "This user doesn't have any followers 😞.")
                 } else {
                     ScrollView {
                         LazyVGrid(columns: columns) {
@@ -86,5 +82,5 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView(gitHubUser: "SAllen0400")
+    FollowersView(gitHubUser: "Scrowder1172")
 }
