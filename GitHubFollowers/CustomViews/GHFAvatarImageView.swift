@@ -9,7 +9,11 @@ import SwiftUI
 
 struct GHFAvatarImageView: View {
     
-    let placeholderImage: Image = Image(.avatarPlaceholder)
+    let placeholderImage: Image
+    
+    init(placeholderImage: Image  = Image(.avatarPlaceholder)) {
+        self.placeholderImage = placeholderImage
+    }
     
     var body: some View {
         placeholderImage
