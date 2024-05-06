@@ -16,12 +16,22 @@ struct FollowersView: View {
     @State private var followers: [Follower] = []
     @State private var hasMoreFollowers: Bool = true
     @State private var pageNumber: Int = 0
-    @State private var followerCount: Int = 0
     @State private var isLoadingFollowers: Bool = false
+    @State private var searchText: String = ""
+    @State private var followerSet: Set<String> = []
+    @State private var lastIndexRequested: Int = 0
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
     ]
+    
+    var filteredFollowers: [Follower] {
+        if searchText.isEmpty {
+            return followers
+        } else {
+            return followers.filter { $0.login.localizedStandardContains(searchText)}
+        }
+    }
     
     var body: some View {
         ZStack{
@@ -31,17 +41,17 @@ struct FollowersView: View {
                 } else {
                     ScrollView {
                         LazyVGrid(columns: columns) {
-                            ForEach(followers) { follower in
-                                FollowerCell(follower: follower, followerCount: $followerCount)
+                            ForEach(filteredFollowers) { follower in
+                                FollowerCell(follower: follower, followerSet: $followerSet)
                             }
                         }
                     }
-                    .onChange(of: followerCount) { oldValue, newValue in
-    //                    print("Follower Count: \(newValue)")
-                        if hasMoreFollowers, newValue == followers.count {
+                    .onChange(of: followerSet) { oldValue, newValue in
+                        if hasMoreFollowers, followerSet.count == followers.count {
                             getFollowers()
                         }
                     }
+                    .searchable(text: $searchText, prompt: "Search for specific followers")
                     Text("Follower count: \(followers.count)")
                 }
             }
@@ -82,5 +92,5 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView(gitHubUser: "Scrowder1172")
+    FollowersView(gitHubUser: "Sallen0400")
 }

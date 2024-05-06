@@ -10,7 +10,7 @@ import SwiftUI
 struct FollowerCell: View {
     
     let follower: Follower
-    @Binding var followerCount: Int
+    @Binding var followerSet: Set<String>
     @State private var avatarImage: UIImage?
     
     var body: some View {
@@ -30,7 +30,7 @@ struct FollowerCell: View {
         }
         .onAppear {
             Task {
-                followerCount += 1
+                followerSet.insert(follower.id)
                 let cacheKey = NSString(string: follower.avatarUrl)
                 
                 if let image = NetworkManager.cache.object(forKey: cacheKey) {
@@ -46,7 +46,7 @@ struct FollowerCell: View {
 }
 
 #Preview {
-    FollowerCell(follower: .Example, followerCount: .constant(1))
+    FollowerCell(follower: .Example, followerSet: .constant([]))
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.secondary, lineWidth: 2)
