@@ -19,11 +19,15 @@ struct UserDetailView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading){
+            VStack(alignment: .leading, spacing: 30){
                 if let user {
                     GHFUserInfoHeaderView(user: user)
+                    GHFRepoItemView(user: user)
+                    GHFFollowerItemView(user: user)
                 } else {
                     GHFUserInfoHeaderView(user: .UnknownUser)
+                    GHFRepoItemView(user: .UnknownUser)
+                    GHFFollowerItemView(user: .UnknownUser)
                 }
                 
                 Spacer()
@@ -33,8 +37,6 @@ struct UserDetailView: View {
                 getUserDetails()
             }
             .ghfAlert(isShowingAlert: $isShowingAlert, title: "Error!", message: errorMessage, buttonText: "OK")
-            .navigationTitle(username)
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Done") {
