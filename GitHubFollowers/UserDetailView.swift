@@ -12,24 +12,23 @@ struct UserDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     let username: String
-    @State private var user: User = .ExampleUser
+    @State private var user: User?
     @State private var avatarImage: UIImage = .avatarPlaceholder
     @State private var isShowingAlert: Bool = false
     @State private var errorMessage: String = ""
     
     var body: some View {
         NavigationStack {
-            HStack {
-                GHFAvatarImageView(placeholderImage: Image(uiImage: avatarImage))
-                    .padding(.top, 8)
-                
-                VStack {
-                    GHFTitleLabelView(titleText: user.login, textAlignment: .center, fontSize: 16)
-                        .padding(.bottom, 5)
-                    GHFBodyLabelView(bodyText: user.createdAt, textAlignment: .leading)
-                    GHFBodyLabelView(bodyText: user.bio ?? "", textAlignment: .leading)
+            VStack(alignment: .leading){
+                if let user {
+                    GHFUserInfoHeaderView(user: user)
+                } else {
+                    GHFUserInfoHeaderView(user: .UnknownUser)
                 }
+                
+                Spacer()
             }
+            .padding(.horizontal)
             .onAppear {
                 getUserDetails()
             }
@@ -50,7 +49,9 @@ struct UserDetailView: View {
         Task {
             do {
                 user = try await NetworkManager.shared.getUserDetails(for: username)
-                avatarImage = try await NetworkManager.shared.downloadImage(from: user.avatarUrl)
+                if let user {
+                    print("Avatar URL for \(user.login) is \(user.avatarUrl)")
+                }
             } catch {
                 errorMessage = error.localizedDescription
                 isShowingAlert = true
@@ -60,5 +61,5 @@ struct UserDetailView: View {
 }
 
 #Preview {
-    UserDetailView(username: "SAllen0400")
+    UserDetailView(username: "buh")
 }

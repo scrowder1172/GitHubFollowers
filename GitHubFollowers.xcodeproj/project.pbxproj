@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5228FBB42BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */; };
+		5228FBB62BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */; };
 		5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B32BE4528C00EB978F /* GHFAlertView.swift */; };
 		5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */; };
 		5268C8B82BE45C6100EB978F /* GHFBodyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFSecondaryTitleLabelView.swift; sourceTree = "<group>"; };
+		5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFUserInfoHeaderView.swift; sourceTree = "<group>"; };
 		5268C8B32BE4528C00EB978F /* GHFAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAlertView.swift; sourceTree = "<group>"; };
 		5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTitleLabelView.swift; sourceTree = "<group>"; };
 		5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFBodyLabelView.swift; sourceTree = "<group>"; };
@@ -95,7 +99,9 @@
 				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
 				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
 				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
+				5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */,
 				526D90002BE560FE00287022 /* GHFAvatarImageView.swift */,
+				5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -268,6 +274,8 @@
 				5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */,
 				52CFA3D92BE43C5D0004D9A5 /* String+Ext.swift in Sources */,
 				526D8FF42BE5410500287022 /* NetworkError.swift in Sources */,
+				5228FBB42BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift in Sources */,
+				5228FBB62BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift in Sources */,
 				52CFA3CB2BE412F90004D9A5 /* Color+Ext.swift in Sources */,
 				5268C8B82BE45C6100EB978F /* GHFBodyLabelView.swift in Sources */,
 				52AD048B2BE96C2E002FF222 /* UserDetailView.swift in Sources */,

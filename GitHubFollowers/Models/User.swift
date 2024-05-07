@@ -32,4 +32,15 @@ struct User: Codable, Identifiable {
         followers: 2000,
         createdAt: "2024-03-31 12:00:00 PM"
     )
+    
+    static let UnknownUser: User = User(
+        login: "Unknown",
+        avatarUrl: "",
+        publicRepos: 0,
+        publicGists: 0,
+        htmlUrl: "",
+        following: 0,
+        followers: 0,
+        createdAt: ""
+    )
 }

@@ -1,28 +1,24 @@
 //
-//  GHFBodyLabelView.swift
+//  GHFSecondaryLabelVew.swift
 //  GitHubFollowers
 //
-//  Created by SCOTT CROWDER on 5/2/24.
+//  Created by SCOTT CROWDER on 5/7/24.
 //
 
 import SwiftUI
 
-struct GHFBodyLabelView: View {
-    
+struct GHFSecondaryTitleLabelView: View {
     let bodyText: String
     let textAlignment: TextAlignment
     
     var body: some View {
         Text(bodyText)
             .multilineTextAlignment(textAlignment)
-            .font(.body)
+            .font(.title3)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
 #Preview {
-    GHFBodyLabelView(
-        bodyText: "Please enter a username. We need to know who to look for 😄",
-        textAlignment: .leading
-    )
+    GHFSecondaryTitleLabelView(bodyText: "Hello, world", textAlignment: .leading)
 }
