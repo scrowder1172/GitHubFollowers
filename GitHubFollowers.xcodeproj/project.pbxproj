@@ -13,6 +13,7 @@
 		5228FBBC2BEAB59500AC1EB6 /* ItemInfoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBBB2BEAB59500AC1EB6 /* ItemInfoType.swift */; };
 		5228FBC52BEAC83600AC1EB6 /* GHFRepoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBC42BEAC83600AC1EB6 /* GHFRepoItemView.swift */; };
 		5228FBC72BEACA5700AC1EB6 /* GHFFollowerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBC62BEACA5700AC1EB6 /* GHFFollowerItemView.swift */; };
+		5228FBCB2BEAD0EC00AC1EB6 /* Dates+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBCA2BEAD0EC00AC1EB6 /* Dates+Ext.swift */; };
 		5268C8B42BE4528C00EB978F /* GHFAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B32BE4528C00EB978F /* GHFAlertView.swift */; };
 		5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */; };
 		5268C8B82BE45C6100EB978F /* GHFBodyLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */; };
@@ -47,6 +48,7 @@
 		5228FBBB2BEAB59500AC1EB6 /* ItemInfoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInfoType.swift; sourceTree = "<group>"; };
 		5228FBC42BEAC83600AC1EB6 /* GHFRepoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFRepoItemView.swift; sourceTree = "<group>"; };
 		5228FBC62BEACA5700AC1EB6 /* GHFFollowerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFFollowerItemView.swift; sourceTree = "<group>"; };
+		5228FBCA2BEAD0EC00AC1EB6 /* Dates+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dates+Ext.swift"; sourceTree = "<group>"; };
 		5268C8B32BE4528C00EB978F /* GHFAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFAlertView.swift; sourceTree = "<group>"; };
 		5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFTitleLabelView.swift; sourceTree = "<group>"; };
 		5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFBodyLabelView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				52CFA3CA2BE412F90004D9A5 /* Color+Ext.swift */,
 				52CFA3D82BE43C5D0004D9A5 /* String+Ext.swift */,
 				5268C8B92BE45EE600EB978F /* View+Ext.swift */,
+				5228FBCA2BEAD0EC00AC1EB6 /* Dates+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */,
 				5228FBC72BEACA5700AC1EB6 /* GHFFollowerItemView.swift in Sources */,
 				52CFA3C92BE40D510004D9A5 /* GHFTextField.swift in Sources */,
+				5228FBCB2BEAD0EC00AC1EB6 /* Dates+Ext.swift in Sources */,
 				52AD047D2BE5EE4E002FF222 /* GitHubRate.swift in Sources */,
 				526D90012BE560FE00287022 /* GHFAvatarImageView.swift in Sources */,
 				52CFA3D52BE431320004D9A5 /* FollowersView.swift in Sources */,
