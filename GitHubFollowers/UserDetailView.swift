@@ -17,17 +17,29 @@ struct UserDetailView: View {
     @State private var isShowingAlert: Bool = false
     @State private var errorMessage: String = ""
     
+    var userCreatedAtMessage: String {
+        if let user {
+            return "GitHub since \(user.createdAt.convertToDisplayFormat())"
+        } else {
+            return "Unknown GitHub profile creation date"
+        }
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 30){
+            VStack(spacing: 30){
                 if let user {
                     GHFUserInfoHeaderView(user: user)
                     GHFRepoItemView(user: user)
                     GHFFollowerItemView(user: user)
+                    Text(userCreatedAtMessage)
+                        .font(.body)
                 } else {
                     GHFUserInfoHeaderView(user: .UnknownUser)
                     GHFRepoItemView(user: .UnknownUser)
                     GHFFollowerItemView(user: .UnknownUser)
+                    Text(userCreatedAtMessage)
+                        .font(.body)
                 }
                 
                 Spacer()
