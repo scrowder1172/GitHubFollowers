@@ -8,5 +8,5 @@
 import Foundation
 
 enum ItemInfoType {
-    case repo, gist, followers, following
+    case repos, gists, followers, following
 }

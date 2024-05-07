@@ -14,9 +14,9 @@ struct GHFItemInfoView: View {
     
     var titleText: String {
         switch itemInfoType {
-        case .repo:
+        case .repos:
             "Public Repos"
-        case .gist:
+        case .gists:
             "Public Gists"
         case .followers:
             "Followers"
@@ -27,9 +27,9 @@ struct GHFItemInfoView: View {
     
     var image: Image {
         switch itemInfoType {
-        case .repo:
+        case .repos:
             Image(systemName: "folder")
-        case .gist:
+        case .gists:
             Image(systemName: "text.alignleft")
         case .followers:
             Image(systemName: "heart")
