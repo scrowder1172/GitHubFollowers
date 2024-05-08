@@ -23,7 +23,7 @@ struct FollowersView: View {
     @State private var followerSet: Set<String> = []
     @State private var lastIndexRequested: Int = 0
     @State private var isShowingUserDetailView: Bool = false
-    @State private var selectedFollower: Follower?
+    @State private var selectedFollower: Follower? = nil
     
     let columns = [
         GridItem(.adaptive(minimum: 120))
@@ -64,10 +64,8 @@ struct FollowersView: View {
             }
             .opacity(isLoadingFollowers ? 0.5 : 1.0)
             .disabled(isLoadingFollowers)
-            .sheet(item: $selectedFollower) { _ in
-                if let selectedFollower {
-                    UserDetailView(username: selectedFollower.login)
-                }
+            .sheet(item: $selectedFollower) { follower in
+                UserDetailView(username: follower.login)
             }
             .onChange(of: gitHubManager.refreshFollowerList) { oldValue, newValue in
                 if gitHubManager.refreshFollowerList {

@@ -17,6 +17,7 @@ struct UserDetailView: View {
 //    @State private var avatarImage: UIImage = .avatarPlaceholder
     @State private var isShowingAlert: Bool = false
     @State private var errorMessage: String = ""
+    @State private var isLoadingUser: Bool = false
     
     var userCreatedAtMessage: String {
         if gitHubManager.gitHubUser.login != User.UnknownUser.login {
@@ -28,14 +29,24 @@ struct UserDetailView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 30){
-                GHFUserInfoHeaderView()
-                GHFRepoItemView()
-                GHFFollowerItemView()
-                Text(userCreatedAtMessage)
-                    .font(.body)
-                
-                Spacer()
+            Group{
+                if isLoadingUser{
+                    ContentUnavailableView(label: {
+                        Label("Loading User Details", systemImage: "globe")
+                    }, description: {
+                        Text("User details will be available when the loading has finished.")
+                    })
+                } else {
+                    VStack(spacing: 30){
+                        GHFUserInfoHeaderView()
+                        GHFRepoItemView()
+                        GHFFollowerItemView()
+                        Text(userCreatedAtMessage)
+                            .font(.body)
+                        
+                        Spacer()
+                    }
+                }
             }
             .padding(.horizontal)
             .onAppear {
@@ -55,8 +66,11 @@ struct UserDetailView: View {
     func getUserDetails() {
         Task {
             do {
+                print("Start loading user details for selected user: \(username)")
+                isLoadingUser = true
                 gitHubManager.gitHubUser = try await NetworkManager.shared.getUserDetails(for: username)
                 print("Avatar URL for \(gitHubManager.gitHubUser.login) is \(gitHubManager.gitHubUser.avatarUrl)")
+                isLoadingUser = false
             } catch {
                 errorMessage = error.localizedDescription
                 isShowingAlert = true
