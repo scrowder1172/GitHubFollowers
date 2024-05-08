@@ -54,8 +54,10 @@ struct FollowersView: View {
                         }
                     }
                     .onChange(of: followerSet) { oldValue, newValue in
-                        if hasMoreFollowers, followerSet.count == gitHubManager.followers.count {
-                            getFollowers()
+                        if hasMoreFollowers{
+                            if followerSet.count == gitHubManager.followers.count {
+                                getFollowers()
+                            }
                         }
                     }
                     .searchable(text: $searchText, prompt: "Search for specific followers")
@@ -69,7 +71,6 @@ struct FollowersView: View {
             }
             .onChange(of: gitHubManager.refreshFollowerList) { oldValue, newValue in
                 if gitHubManager.refreshFollowerList {
-                    print("I'm going to refresh the follower list!")
                     pageNumber = 0
                     getFollowers()
                     gitHubManager.refreshFollowerList = false
@@ -95,13 +96,13 @@ struct FollowersView: View {
             isLoadingFollowers = true
             do {
                 if pageNumber == 0 {
-                    gitHubManager.followers = []
+                    resetFollowers()
                 }
                 
                 pageNumber += 1
                 let newFollowers = try await NetworkManager.shared.getFollowers(for: gitHubManager.username, page: pageNumber)
                 gitHubManager.followers.append(contentsOf: newFollowers)
-                if gitHubManager.followers.count < 100 {
+                if newFollowers.count < 100 {
                     hasMoreFollowers = false
                 }
             } catch {
@@ -110,6 +111,12 @@ struct FollowersView: View {
             }
             isLoadingFollowers = false
         }
+    }
+    
+    func resetFollowers() {
+        hasMoreFollowers = true
+        gitHubManager.followers = []
+        followerSet = []
     }
 }
 
