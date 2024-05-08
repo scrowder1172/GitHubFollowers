@@ -9,14 +9,16 @@ import SwiftUI
 
 struct GHFFollowerItemView: View {
     
-    let user: User
+    @Environment(GitHubManager.self) private var gitHubManager
+    
+//    let user: User
     
     var body: some View {
         VStack {
             HStack {
-                GHFItemInfoView(itemCount: user.following, itemInfoType: .following)
+                GHFItemInfoView(itemCount: gitHubManager.gitHubUser.following, itemInfoType: .following)
                 Spacer()
-                GHFItemInfoView(itemCount: user.followers, itemInfoType: .followers)
+                GHFItemInfoView(itemCount: gitHubManager.gitHubUser.followers, itemInfoType: .followers)
             }
             GHFButton(backgroundColor: .green, title: "Get Followers") {
                 print("Getting follower data...")
@@ -30,5 +32,6 @@ struct GHFFollowerItemView: View {
 }
 
 #Preview {
-    GHFFollowerItemView(user: .ExampleUser)
+    GHFFollowerItemView()
+        .environment(GitHubManager())
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		521202262BEBDC5D00A927A4 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521202252BEBDC5D00A927A4 /* SafariView.swift */; };
+		521202282BEBDE4D00A927A4 /* GitHubManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 521202272BEBDE4D00A927A4 /* GitHubManager.swift */; };
 		5228FBB42BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */; };
 		5228FBB62BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */; };
 		5228FBBA2BEAB54100AC1EB6 /* GHFItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228FBB92BEAB54000AC1EB6 /* GHFItemInfoView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		521202252BEBDC5D00A927A4 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		521202272BEBDE4D00A927A4 /* GitHubManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubManager.swift; sourceTree = "<group>"; };
 		5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFSecondaryTitleLabelView.swift; sourceTree = "<group>"; };
 		5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFUserInfoHeaderView.swift; sourceTree = "<group>"; };
 		5228FBB92BEAB54000AC1EB6 /* GHFItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFItemInfoView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		521202292BEBE86100A927A4 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
+				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
+				5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		5212022A2BEBE87300A927A4 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		5212022B2BEBE88500A927A4 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		5212022C2BEBE88C00A927A4 /* TextViews */ = {
+			isa = PBXGroup;
+			children = (
+				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
+			);
+			path = TextViews;
+			sourceTree = "<group>";
+		};
+		5212022D2BEBE89200A927A4 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				526D90002BE560FE00287022 /* GHFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		5212022E2BEBE8AE00A927A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52AD04862BE94201002FF222 /* GHFEmptyStateView.swift */,
+				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
+				5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */,
+				5228FBB92BEAB54000AC1EB6 /* GHFItemInfoView.swift */,
+				5228FBC42BEAC83600AC1EB6 /* GHFRepoItemView.swift */,
+				5228FBC62BEACA5700AC1EB6 /* GHFFollowerItemView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5268C8BF2BE4695800EB978F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,20 +161,13 @@
 		5268C8C02BE4697400EB978F /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				5212022E2BEBE8AE00A927A4 /* Views */,
+				5212022D2BEBE89200A927A4 /* ImageViews */,
+				5212022C2BEBE88C00A927A4 /* TextViews */,
+				5212022B2BEBE88500A927A4 /* TextFields */,
+				5212022A2BEBE87300A927A4 /* Buttons */,
+				521202292BEBE86100A927A4 /* Labels */,
 				526D8FFD2BE560C800287022 /* Cells */,
-				52AD04862BE94201002FF222 /* GHFEmptyStateView.swift */,
-				52CFA3C62BE40BD40004D9A5 /* GHFButton.swift */,
-				52CFA3D62BE434080004D9A5 /* GHFText.swift */,
-				52CFA3C82BE40D510004D9A5 /* GHFTextField.swift */,
-				5268C8B32BE4528C00EB978F /* GHFAlertView.swift */,
-				5268C8B52BE45B5400EB978F /* GHFTitleLabelView.swift */,
-				5268C8B72BE45C6100EB978F /* GHFBodyLabelView.swift */,
-				5228FBB32BEA9C5500AC1EB6 /* GHFSecondaryTitleLabelView.swift */,
-				526D90002BE560FE00287022 /* GHFAvatarImageView.swift */,
-				5228FBB52BEA9CE100AC1EB6 /* GHFUserInfoHeaderView.swift */,
-				5228FBB92BEAB54000AC1EB6 /* GHFItemInfoView.swift */,
-				5228FBC42BEAC83600AC1EB6 /* GHFRepoItemView.swift */,
-				5228FBC62BEACA5700AC1EB6 /* GHFFollowerItemView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -136,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				526D8FF02BE53E9200287022 /* NetworkManager.swift */,
+				521202272BEBDE4D00A927A4 /* GitHubManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -176,8 +227,6 @@
 		528C72492BE2FE4A0063C289 /* GitHubFollowers */ = {
 			isa = PBXGroup;
 			children = (
-				526D8FF22BE540F600287022 /* Enums */,
-				526D8FEF2BE53E8900287022 /* Managers */,
 				528C724A2BE2FE4A0063C289 /* GitHubFollowersApp.swift */,
 				528C724C2BE2FE4A0063C289 /* MainView.swift */,
 				52CFA3CE2BE41A1F0004D9A5 /* SearchView.swift */,
@@ -185,6 +234,8 @@
 				52CFA3D02BE41A280004D9A5 /* FavoritesView.swift */,
 				52AD048A2BE96C2E002FF222 /* UserDetailView.swift */,
 				521202252BEBDC5D00A927A4 /* SafariView.swift */,
+				526D8FF22BE540F600287022 /* Enums */,
+				526D8FEF2BE53E8900287022 /* Managers */,
 				5268C8C02BE4697400EB978F /* CustomViews */,
 				526D8FE72BE52EBD00287022 /* Models */,
 				5268C8BF2BE4695800EB978F /* Extensions */,
@@ -284,6 +335,7 @@
 				52CFA3CF2BE41A1F0004D9A5 /* SearchView.swift in Sources */,
 				5228FBBA2BEAB54100AC1EB6 /* GHFItemInfoView.swift in Sources */,
 				5268C8B62BE45B5400EB978F /* GHFTitleLabelView.swift in Sources */,
+				521202282BEBDE4D00A927A4 /* GitHubManager.swift in Sources */,
 				52AD04872BE94201002FF222 /* GHFEmptyStateView.swift in Sources */,
 				52CFA3D12BE41A280004D9A5 /* FavoritesView.swift in Sources */,
 				526D8FF12BE53E9200287022 /* NetworkManager.swift in Sources */,

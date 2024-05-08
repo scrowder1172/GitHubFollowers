@@ -9,22 +9,24 @@ import SwiftUI
 
 struct GHFRepoItemView: View {
     
-    let user: User
+    @Environment(GitHubManager.self) private var gitHubManager
+    
+//    let user: User
     @State private var isShowingSafari: Bool = false
     
     var body: some View {
         VStack {
             HStack {
-                GHFItemInfoView(itemCount: user.publicRepos, itemInfoType: .repos)
+                GHFItemInfoView(itemCount: gitHubManager.gitHubUser.publicRepos, itemInfoType: .repos)
                 Spacer()
-                GHFItemInfoView(itemCount: user.publicGists, itemInfoType: .gists)
+                GHFItemInfoView(itemCount: gitHubManager.gitHubUser.publicGists, itemInfoType: .gists)
             }
             GHFButton(backgroundColor: .purple, title: "GitHub Profile") {
                 isShowingSafari = true
             }
         }
         .sheet(isPresented: $isShowingSafari) {
-            SafariView(url: URL(string: user.htmlUrl)!)
+            SafariView(url: URL(string: gitHubManager.gitHubUser.htmlUrl)!)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 30)
@@ -34,5 +36,6 @@ struct GHFRepoItemView: View {
 }
 
 #Preview {
-    GHFRepoItemView(user: .ExampleUser)
+    GHFRepoItemView()
+        .environment(GitHubManager())
 }

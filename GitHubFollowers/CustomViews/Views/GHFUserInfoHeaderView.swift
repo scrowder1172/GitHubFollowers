@@ -9,7 +9,9 @@ import SwiftUI
 
 struct GHFUserInfoHeaderView: View {
     
-    let user: User
+    @Environment(GitHubManager.self) private var gitHubManager
+    
+//    let user: User
     
     @State private var avatarImage: UIImage?
     
@@ -28,12 +30,12 @@ struct GHFUserInfoHeaderView: View {
                         .scaledToFit()
                 }
                 VStack(alignment: .leading) {
-                    GHFTitleLabelView(titleText: user.login, textAlignment: .leading, fontSize: 34)
-                    GHFSecondaryTitleLabelView(bodyText: user.name ?? "", textAlignment: .leading)
+                    GHFTitleLabelView(titleText: gitHubManager.gitHubUser.login, textAlignment: .leading, fontSize: 34)
+                    GHFSecondaryTitleLabelView(bodyText: gitHubManager.gitHubUser.name ?? "", textAlignment: .leading)
                     HStack {
                         Image(systemName: "mappin.and.ellipse")
                             .imageScale(.large)
-                        GHFSecondaryTitleLabelView(bodyText: user.location ?? "No location", textAlignment: .leading)
+                        GHFSecondaryTitleLabelView(bodyText: gitHubManager.gitHubUser.location ?? "No location", textAlignment: .leading)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -41,21 +43,21 @@ struct GHFUserInfoHeaderView: View {
             .frame(maxWidth: .infinity)
             .padding(.bottom, 10)
             
-            GHFBodyLabelView(bodyText: user.bio ?? "No bio given", textAlignment: .leading)
+            GHFBodyLabelView(bodyText: gitHubManager.gitHubUser.bio ?? "No bio given", textAlignment: .leading)
         }
         .frame(maxWidth: .infinity)
         .onAppear {
             Task {
                 do {
-                    let cacheKey = NSString(string: user.avatarUrl)
-                    print(user.avatarUrl)
+                    let cacheKey = NSString(string: gitHubManager.gitHubUser.avatarUrl)
+                    print(gitHubManager.gitHubUser.avatarUrl)
                     
                     if let image = NetworkManager.cache.object(forKey: cacheKey) {
                         avatarImage = image
                         return
                     }
                     
-                    avatarImage = try await NetworkManager.shared.downloadImage(from: user.avatarUrl)
+                    avatarImage = try await NetworkManager.shared.downloadImage(from: gitHubManager.gitHubUser.avatarUrl)
                     NetworkManager.cache.setObject(avatarImage ?? UIImage(resource: .avatarPlaceholder), forKey: cacheKey)
                 } catch {
                     print(error.localizedDescription)
@@ -70,5 +72,6 @@ struct GHFUserInfoHeaderView: View {
 }
 
 #Preview {
-    GHFUserInfoHeaderView(user: .ExampleUser)
+    GHFUserInfoHeaderView()
+        .environment(GitHubManager())
 }
