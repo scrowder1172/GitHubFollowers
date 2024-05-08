@@ -10,6 +10,7 @@ import SwiftUI
 struct GHFRepoItemView: View {
     
     let user: User
+    @State private var isShowingSafari: Bool = false
     
     var body: some View {
         VStack {
@@ -19,8 +20,11 @@ struct GHFRepoItemView: View {
                 GHFItemInfoView(itemCount: user.publicGists, itemInfoType: .gists)
             }
             GHFButton(backgroundColor: .purple, title: "GitHub Profile") {
-                print("Getting profile data...")
+                isShowingSafari = true
             }
+        }
+        .sheet(isPresented: $isShowingSafari) {
+            SafariView(url: URL(string: user.htmlUrl)!)
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 30)
