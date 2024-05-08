@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+@Observable
+final class GitHubManager {
+    var gitHubUser: User = .UnknownUser
+    var username: String = ""
+    var followers: [Follower] = []
+    var refreshFollowerList: Bool = false
+    
+    init() {
+        
+    }
+}

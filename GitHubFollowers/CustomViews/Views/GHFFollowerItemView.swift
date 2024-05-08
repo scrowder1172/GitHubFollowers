@@ -10,6 +10,7 @@ import SwiftUI
 struct GHFFollowerItemView: View {
     
     @Environment(GitHubManager.self) private var gitHubManager
+    @Environment(\.dismiss) private var dismiss
     
 //    let user: User
     
@@ -22,6 +23,9 @@ struct GHFFollowerItemView: View {
             }
             GHFButton(backgroundColor: .green, title: "Get Followers") {
                 print("Getting follower data...")
+                gitHubManager.username = gitHubManager.gitHubUser.login
+                gitHubManager.refreshFollowerList = true
+                dismiss()
             }
         }
         .padding(.horizontal, 20)

@@ -9,12 +9,15 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @State private var searchText: String = ""
+    @Environment(GitHubManager.self) private var gitHubManager
+    
+//    @State private var searchText: String = ""
     
     @State private var isShowingAlert: Bool = false
     @State private var navigateToFollowers: Bool = false
     
     var body: some View {
+        @Bindable var gitHubManager = gitHubManager
         NavigationStack{
             VStack {
                 Image(.ghLogo)
@@ -24,14 +27,14 @@ struct SearchView: View {
                     .padding(.bottom, 50 )
                     .padding(.top, 80)
                 
-                GHFTextField(inputText: $searchText)
+                GHFTextField(inputText: $gitHubManager.username)
                     .frame(height: 50)
                     .padding(.horizontal, 50)
                 
                 Spacer()
                 
                 GHFButton(backgroundColor: .green, title: "Get Followers") {
-                    if searchText.isEmpty {
+                    if gitHubManager.username.isEmpty {
                         isShowingAlert = true
                     } else {
                         navigateToFollowers = true
@@ -43,7 +46,7 @@ struct SearchView: View {
             }
             .ghfAlert(isShowingAlert: $isShowingAlert, title: "Empty Username", message: "Please enter a username. We need to know who to look for 😄", buttonText: "OK")
             .navigationDestination(isPresented: $navigateToFollowers) {
-                FollowersView(gitHubUser: searchText)
+                FollowersView()
             }
             .background(Color.systemBackground)
             .toolbar(.hidden) // hides navbar
@@ -53,6 +56,7 @@ struct SearchView: View {
 
 #Preview {
     SearchView()
+        .environment(GitHubManager())
 }
 
 #Preview("TabView") {

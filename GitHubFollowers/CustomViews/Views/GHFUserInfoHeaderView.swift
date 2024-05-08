@@ -65,10 +65,6 @@ struct GHFUserInfoHeaderView: View {
             }
         }
     }
-    
-    func loadUserDetails() {
-        
-    }
 }
 
 #Preview {

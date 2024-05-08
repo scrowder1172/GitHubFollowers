@@ -9,11 +9,13 @@ import SwiftUI
 
 struct FollowersView: View {
     
-    let gitHubUser: String
+    @Environment(GitHubManager.self) private var gitHubManager
+    
+//    let gitHubUser: String
     
     @State private var isShowingAlert: Bool = false
     @State private var errorMessage: String = "An error has occurred. Please try again."
-    @State private var followers: [Follower] = []
+//    @State private var followers: [Follower] = []
     @State private var hasMoreFollowers: Bool = true
     @State private var pageNumber: Int = 0
     @State private var isLoadingFollowers: Bool = false
@@ -29,16 +31,16 @@ struct FollowersView: View {
     
     var filteredFollowers: [Follower] {
         if searchText.isEmpty {
-            return followers
+            return gitHubManager.followers
         } else {
-            return followers.filter { $0.login.localizedStandardContains(searchText)}
+            return gitHubManager.followers.filter { $0.login.localizedStandardContains(searchText)}
         }
     }
     
     var body: some View {
         ZStack{
             VStack{
-                if followers.isEmpty {
+                if gitHubManager.followers.isEmpty {
                     GHFEmptyStateView(message: "This user doesn't have any followers 😞.")
                 } else {
                     ScrollView {
@@ -52,12 +54,12 @@ struct FollowersView: View {
                         }
                     }
                     .onChange(of: followerSet) { oldValue, newValue in
-                        if hasMoreFollowers, followerSet.count == followers.count {
+                        if hasMoreFollowers, followerSet.count == gitHubManager.followers.count {
                             getFollowers()
                         }
                     }
                     .searchable(text: $searchText, prompt: "Search for specific followers")
-                    Text("Follower count: \(followers.count)")
+                    Text("Follower count: \(gitHubManager.followers.count)")
                 }
             }
             .opacity(isLoadingFollowers ? 0.5 : 1.0)
@@ -65,6 +67,14 @@ struct FollowersView: View {
             .sheet(item: $selectedFollower) { _ in
                 if let selectedFollower {
                     UserDetailView(username: selectedFollower.login)
+                }
+            }
+            .onChange(of: gitHubManager.refreshFollowerList) { oldValue, newValue in
+                if gitHubManager.refreshFollowerList {
+                    print("I'm going to refresh the follower list!")
+                    pageNumber = 0
+                    getFollowers()
+                    gitHubManager.refreshFollowerList = false
                 }
             }
             
@@ -77,7 +87,7 @@ struct FollowersView: View {
             getFollowers()
         }
         .ghfAlert(isShowingAlert: $isShowingAlert, title: "Error!", message: errorMessage, buttonText: "OK")
-        .navigationTitle(gitHubUser)
+        .navigationTitle(gitHubManager.username)
         .navigationBarTitleDisplayMode(.large)
         .padding(.horizontal, 5)
     }
@@ -86,10 +96,14 @@ struct FollowersView: View {
         Task {
             isLoadingFollowers = true
             do {
+                if pageNumber == 0 {
+                    gitHubManager.followers = []
+                }
+                
                 pageNumber += 1
-                let newFollowers = try await NetworkManager.shared.getFollowers(for: gitHubUser, page: pageNumber)
-                followers.append(contentsOf: newFollowers)
-                if followers.count < 100 {
+                let newFollowers = try await NetworkManager.shared.getFollowers(for: gitHubManager.username, page: pageNumber)
+                gitHubManager.followers.append(contentsOf: newFollowers)
+                if gitHubManager.followers.count < 100 {
                     hasMoreFollowers = false
                 }
             } catch {
@@ -102,5 +116,6 @@ struct FollowersView: View {
 }
 
 #Preview {
-    FollowersView(gitHubUser: "Sallen0400")
+    FollowersView()
+        .environment(GitHubManager())
 }
