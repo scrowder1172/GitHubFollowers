@@ -82,13 +82,34 @@ struct FollowersView: View {
             }
             
         }
+        .navigationTitle(gitHubManager.username)
+        .navigationBarTitleDisplayMode(.large)
         .onAppear {
             getFollowers()
         }
         .ghfAlert(isShowingAlert: $isShowingAlert, title: "Error!", message: errorMessage, buttonText: "OK")
-        .navigationTitle(gitHubManager.username)
-        .navigationBarTitleDisplayMode(.large)
         .padding(.horizontal, 5)
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button("Add", systemImage: "plus") {
+                    saveFavorite()
+                }
+            }
+        }
+    }
+    
+    func saveFavorite() {
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserDetails(for: gitHubManager.username)
+                let favorite: Follower = Follower(login: user.login, avatarUrl: user.avatarUrl)
+                print("Saving new favorite: \(favorite)")
+                try PersistenceManager.shared.saveFavorite(newFavorite: favorite)
+            } catch {
+                errorMessage = error.localizedDescription
+                isShowingAlert = true
+            }
+        }
     }
     
     func getFollowers() {
