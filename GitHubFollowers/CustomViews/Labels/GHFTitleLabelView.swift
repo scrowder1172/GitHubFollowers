@@ -19,14 +19,15 @@ struct GHFTitleLabelView: View {
             .font(.system(size: fontSize, weight: .bold))
             .foregroundStyle(Color.label)
             .truncationMode(.tail)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 
 #Preview {
     GHFTitleLabelView(
-        titleText: "Title Message",
-        textAlignment: .leading,
+        titleText: "Title",
+        textAlignment: .center,
         fontSize: 24
     )
+    .border(.white)
 }
