@@ -35,7 +35,6 @@ final class NetworkManager {
             throw NetworkError.responseInvalid
         }
         
-        
         let rate = try await checkGitHubRateLimit()
         print("GitHub Calls Remaining: \(rate.remaining)")
         if rate.remaining < 10 {
@@ -53,13 +52,8 @@ final class NetworkManager {
             throw NetworkError.statusCodeInvalid
         }
         
-        
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let followers: [Follower] = try decoder.decode([Follower].self, from: data)
-            return followers
-            
+            return try decodeResponse(typeOf: [Follower].self, from: data)
         } catch {
             print("Error: \(error.localizedDescription)")
             throw NetworkError.responseInvalid
@@ -102,13 +96,8 @@ final class NetworkManager {
             throw NetworkError.statusCodeInvalid
         }
         
-        
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let user: User = try decoder.decode(User.self, from: data)
-            return user
-            
+            return try decodeResponse(typeOf: User.self, from: data)
         } catch {
             print("Error: \(error.localizedDescription)")
             throw NetworkError.responseInvalid
@@ -140,10 +129,18 @@ final class NetworkManager {
         return image
     }
     
-    func decodeUnknownData(data: Data, encoding: String.Encoding = .utf8) {
+    private func decodeUnknownData(data: Data, encoding: String.Encoding = .utf8) {
         if let string: String = String(data: data, encoding: encoding) {
             print("JSON String: \(string)")
         }
+    }
+    
+    private func decodeResponse<T>(typeOf: T.Type, from data: Data) throws -> T where T: Decodable {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        let returnedData = try decoder.decode(T.self, from: data)
+        return returnedData
     }
     
     func checkGitHubRateLimit() async throws -> Rate{
@@ -173,11 +170,8 @@ final class NetworkManager {
         }
         
         do {
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let rateData = try decoder.decode(GitHubRate.self, from: data)
+            let rateData = try decodeResponse(typeOf: GitHubRate.self, from: data)
             return rateData.rate
-            
         } catch {
             print("Error: \(error.localizedDescription)")
             throw NetworkError.responseInvalid
