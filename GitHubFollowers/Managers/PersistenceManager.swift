@@ -41,13 +41,13 @@ class PersistenceManager {
     }
     
     func saveFavorite(newFavorite: Follower) throws {
+        var favorites: [Follower] = try loadFavorites()
+        
+        guard !favorites.contains(newFavorite) else {
+            throw FavoritesError.alreadyFavorited
+        }
+
         do {
-            var favorites: [Follower] = try loadFavorites()
-            
-            guard !favorites.contains(newFavorite) else {
-                throw FavoritesError.alreadyFavorited
-            }
-            
             favorites.append(newFavorite)
             try storeFavorites(favorites: favorites)
             
