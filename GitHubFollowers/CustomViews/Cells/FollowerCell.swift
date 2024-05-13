@@ -17,16 +17,20 @@ struct FollowerCell: View {
         VStack{
             
             if let avatarImage {
-                GHFAvatarImageView(placeholderImage: Image(uiImage: avatarImage))
-                    .padding(.top, 8)
+                Image(uiImage: avatarImage)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(.circle)
+                    .padding(5)
             } else {
                 GHFAvatarImageView()
                     .padding(.top, 8)
             }
             
-            
-            GHFTitleLabelView(titleText: follower.login, textAlignment: .center, fontSize: 16)
-                .padding(.bottom, 5)
+            Text(follower.login)
+                .bold()
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
         }
         .onAppear {
             Task {
