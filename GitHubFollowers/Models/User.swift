@@ -22,6 +22,10 @@ struct User: Codable, Identifiable {
     
     var id: String { login }
     
+    var urlForAvatar: URL? {
+        URL(string: avatarUrl)
+    }
+    
     static let ExampleUser: User = User(
         login: "SAllen0400",
         avatarUrl: "https://avatars.githubusercontent.com/u/10645516?v=4",
