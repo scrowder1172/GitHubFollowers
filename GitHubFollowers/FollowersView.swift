@@ -61,7 +61,13 @@ struct FollowersView: View {
                         }
                     }
                     .searchable(text: $searchText, prompt: "Search for specific followers")
-                    Text("Follower count: \(gitHubManager.followers.count)")
+                    HStack{
+                        Text("Total Followers: \(gitHubManager.gitHubUser.followers)")
+                        Spacer()
+                        Text("Displayed: \(gitHubManager.followers.count)")
+                    }
+                    .font(.caption)
+                    .padding(5)
                 }
             }
             .opacity(isLoadingFollowers ? 0.5 : 1.0)
@@ -85,6 +91,7 @@ struct FollowersView: View {
         .navigationTitle(gitHubManager.username)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
+            getUserDetails()
             getFollowers()
         }
         .ghfAlert(isShowingAlert: $isShowingAlert, title: "Error!", message: errorMessage, buttonText: "OK")
@@ -109,6 +116,12 @@ struct FollowersView: View {
                 errorMessage = error.localizedDescription
                 isShowingAlert = true
             }
+        }
+    }
+    
+    func getUserDetails() {
+        Task {
+            gitHubManager.gitHubUser = try await NetworkManager.shared.getUserDetails(for: gitHubManager.username)
         }
     }
     
